@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      margin-top: 100px;
+    }
+    #no {
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Will you be my Valentine? ❤️</h2>
+  <p id="msg">Please say yes 🥺</p>
+
+  <button onclick="yes()">Yes</button>
+  <button id="no" onclick="no()">No</button>
+
+  <script>
+    let count = 0;
+    const messages = [
+      "Are you sure? 😢",
+      "I'm getting sad...",
+      "Please think again 🥺",
+      "My heart is breaking 💔",
+      "Okay… this hurts 😭"
+    ];
+
+    function no() {
+      const x = Math.floor(Math.random() * 200);
+      const y = Math.floor(Math.random() * 200);
+      document.getElementById("no").style.left = x + "px";
+      document.getElementById("no").style.top = y + "px";
+
+      document.getElementById("msg").innerText =
+        messages[count % messages.length];
+      count++;
+    }
+
+    function yes() {
+      document.body.innerHTML = `
+        <h1>Thank you ❤️</h1>
+        <p>You made me really happy 😊</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
